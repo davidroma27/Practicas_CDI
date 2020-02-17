@@ -19,16 +19,33 @@ public class Prog1 {
         long id = Thread.currentThread().getId();
         //getName() -> Le damos un nombre al thread actual
         String name = Thread.currentThread().getName();
-        //int priority -> Establecemos la prioridad del hilo actual
+        //getPriority() -> Obtenemos la prioridad del hilo actual
         int priority = Thread.currentThread().getPriority();
-        //state -> Para saber el estado del thread: Si esta activo, caducado, etc...
+        //getState() -> Para saber el estado del thread: Si esta activo, dormido, etc...
         Thread.State state = Thread.currentThread().getState();
-        //threadGroupName -> Se pueden crear grupos de hilos
+        //getThreadGroup() -> Se pueden crear grupos de hilos
         String threadGroupName = Thread.currentThread().getThreadGroup().getName();
+        //isAlive() -> Informa de si el hilo está en ejecución
+        boolean alive = Thread.currentThread().isAlive();
+        
+        for (int i = 0; i <= 2; i++) {
+            // Pause for 2 seconds
+            try {
+                
+                Thread.sleep(2000);
+                System.out.println("Hilo durmiendo");
+               
+            } catch (InterruptedException e) {
+                // We've been interrupted: no more messages.
+                return;
+            }
+            // Print a message
+            System.out.println("Hilo en ejecución");
+        }
         
         System.out.println("id="+id+"; name="+name+"; priority="
             +priority+"; state="+state+"; threadGroupName="
-            +threadGroupName);
+            +threadGroupName + "; isAlive=" + alive);
     }
     
 }
