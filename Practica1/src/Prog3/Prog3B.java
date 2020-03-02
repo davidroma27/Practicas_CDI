@@ -11,7 +11,7 @@ package Prog3;
  */
 
 /**
- * En este ejemplo teneos dos hilos, uno que implementa Runnable (El hilo hijo)
+ * En este ejemplo tenemos dos hilos, uno que implementa Runnable (El hilo hijo)
  * y el hilo principal creado en el main (main thread). 
  * 
  * En las computadoras de un solo núcleo los dos hilos se van turnando para compartir

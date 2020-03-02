@@ -13,7 +13,7 @@ public class Prog2 extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Prog2 myThread = new Prog2("myThread"); //Creating the main Thread in main method
-        myThread.start(); //starting the thread
+        //Prog2 myThread = new Prog2("myThread"); //Creating the main Thread in main method
+        (new Prog2("My Thread")).start(); //starting the thread
     }
 }

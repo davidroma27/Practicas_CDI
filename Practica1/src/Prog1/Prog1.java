@@ -17,7 +17,7 @@ public class Prog1 {
     public static void main(String[] args) {
         //currentThread() -> Indica el hilo en el que estoy ahora mismo
         long id = Thread.currentThread().getId();
-        //getName() -> Le damos un nombre al thread actual
+        //getName() -> Obtenemos el nombre del thread actual
         String name = Thread.currentThread().getName();
         //getPriority() -> Obtenemos la prioridad del hilo actual
         int priority = Thread.currentThread().getPriority();
