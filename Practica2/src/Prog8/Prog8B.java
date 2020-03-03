@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Prog8;
 
 /**
@@ -36,15 +31,25 @@ class Prog8 {
         }
         
         //pide los estados de cada hilo sin haberlos arrancado aun
+        //Se crean todos en estado NEW
         for (int i = 0; i < 10; i++) {
             System.out.println("Main : Status of Thread " + i + " : " + threads[i].getState());
             status[i] = threads[i].getState();
+            System.out.println(threads[i].getPriority());
         }
         
         //arrancamos los hilos
         for (int i = 0; i < 10; i++) {
             threads[i].start();
         }
+        /**
+         * ++++++++++++++++++++++++++IMPORTANTE++++++++++++++++++++++++++++++++
+         * 
+         * Los hilos son creados y arracandos intercaladamente por prioridad y en estado BLOCKED.
+         * Pasan de estado BLOCKED a RUNNABLE y el planificador actua de forma que
+         * todos los hilos de prioridad maxima acaben antes que los hilos que tienen
+         * prioridad minima.
+         */
         
         // Wait for the finalization of the threads. We save the status of
         // the threads and only write the status if it changes.

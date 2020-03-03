@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Prog9;
 
 /**
  *
  * @author david
  */
-//Interrupciones simples
 
+//Interrupciones simples
 //Este paquete se usa para tiempo en codigo concurrente
 import java.util.concurrent.TimeUnit;
 
@@ -66,5 +61,6 @@ public class Prog9 {
         System.out.printf("Main: Status of the Thread: %s\n", task.getState());
         System.out.printf("Main: isInterrupted: %s\n", task.isInterrupted());
         System.out.printf("Main: isAlive: %s\n", task.isAlive());
+        System.out.printf("Main: Status of the Thread: %s\n", task.getState());
     }
 }
