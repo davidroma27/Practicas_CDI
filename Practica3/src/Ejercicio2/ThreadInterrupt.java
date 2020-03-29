@@ -16,29 +16,25 @@ public class ThreadInterrupt extends Thread{
         try {
             calculaPi();
         } catch (InterruptedException e) {
-            System.out.printf("%s: The search has been interrupted", Thread.currentThread().getName());
+            System.out.printf("%s: The search has been interrupted", Thread.currentThread().getName() + "\n");
         }
     }
     
     private void calculaPi() throws InterruptedException {
-        for(int i = 3; i < 100000; i++){
-            if (negative) {
-                pi -= (1.0 / i);
+         pi = 0.0;
+        while (!Thread.currentThread().isInterrupted()) {
+            for (int i = 3; i < 100000; i += 2) {
+                if (negative) {
+                    pi -= (1.0 / i);
+                } else {
+                    pi += (1.0 / i);
+                }
+                negative = !negative;
             }
-            else{
-                pi += (1.0 / i);
-            }
-            negative = !negative;
-            
+            pi += 1.0;
+            pi *= 4.0;
         }
-        pi += 1.0;
-        pi *= 4.0;
-        
         System.out.println(pi);
-        
-        if (Thread.interrupted()) {
-            throw new InterruptedException();
-        }
     }
     
 }

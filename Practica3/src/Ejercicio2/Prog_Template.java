@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio2;
 
 import java.util.ArrayList;
@@ -19,12 +14,12 @@ public class Prog_Template {
         List<Thread> threadList = new ArrayList<Thread>(NUMBER_THREADS);
         // Code given previously to launch
          for (int i = 1; i <= NUMBER_THREADS; ++i) {
-            threadList.add(new ThreadInterrupt());
+            Thread t = new Thread("Thread " + i);
+            threadList.add(t);
+            t.start();
         }
+         
         Iterator<Thread> l1 = threadList.iterator();
-        while (l1.hasNext()) {
-            l1.next().start();
-        }
         
         // join threads
         while (l1.hasNext()) {
@@ -37,7 +32,11 @@ public class Prog_Template {
             }
         }
         // CODE FOR Interrupting Threads
-        
+        Iterator<Thread> i = threadList.iterator();
+        while(i.hasNext()){
+            Thread t2 = i.next();
+            t2.interrupt();
+         }
 
         System.out.println("The program is Finished!");
     }
